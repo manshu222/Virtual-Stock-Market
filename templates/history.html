@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your History of Transactions
+{% endblock %}
+
+{% block main %}
+    {{ nothing }}
+    <table style="width:100%">
+  <tr>
+    <th>Action</th>
+    <th>Symbol</th>
+    <th>Shares</th>
+    <th>Price</th>
+    <th>Time</th>
+  </tr>
+    {% for entry in stocks -%}
+  <tr>
+    <td>{{ entry["action"] }}</td>
+    <td>{{ entry["symbol"] }}</td>
+    <td>{{ entry["shares"] }}</td>
+    <td>{{ entry["price"] | usd }}</td>
+    <td>{{ entry["time"] }}</td>
+  </tr>
+    {%- endfor %}
+</table>
+{% endblock %}

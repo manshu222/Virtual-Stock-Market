@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/chpass" method="post">
+        Current Password <input autocomplete="off" name="currentpass" placeholder="Current Password" type="text"/><br>
+        New Password <input autocomplete="off" name="newpass" placeholder="New Password" type="text"/><br>
+        <button type="submit">Find</button>
+    </form>
+{% endblock %}
