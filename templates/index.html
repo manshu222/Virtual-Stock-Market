@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Shares
+{% endblock %}
+
+{% block main %}
+    {{ nothing }}
+    <table style="width:100%">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Shares</th>
+      <th>Price</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="3"></td>
+      <td>{{ total | usd}}</td>
+    </tr>
+  </tfoot>
+    {% for entry in forms -%}
+  <tr>
+    <td>{{ entry["symbol"] }}</td>
+    <td>{{ entry["share"] }}</td>
+    <td>{{ entry["price"] | usd }}</td>
+    <td>{{ entry["amount"] | usd }}</td>
+  </tr>
+    {%- endfor %}
+  <tr>
+    <td>CASH</td>
+    <td colspan="2"></td>
+    <td>{{ cash | usd }}</td>
+  </tr>
+</table>
+
+{% endblock %}
